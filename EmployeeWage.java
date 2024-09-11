@@ -3,127 +3,130 @@ package com.bridgelabz.employeewage;
 import java.util.Scanner;
 
 public class EmployeeWage {
-	  int wagePerHour;
-	    int fullDay;
-	    int halfDay;
-	    int dailyWage;
-	    int monthlyWage;
-	    float counter1;
-	    int totalHourPresnt;
-	    int totalhourPartTime;
-	    int totalHourAbsent;
-	    int empCheck;
-	    int totalHours;
-	     int totalNoOfDays;
+	int wagePerHour;
+	int fullDay;
+	int halfDay;
+	int dailyWage;
+	int monthlyWage;
+	float counter1;
+	int totalHourPresnt;
+	int totalhourPartTime;
+	int totalHourAbsent;
+	int empCheck;
+	int totalHours;
+	int totalNoOfDays;
 
-	    String companyName;
+	String companyName;
 
-	    EmployeeWage( String companyName1,int wage,int totalNoOfDays) {
+	EmployeeWage( String companyName1,int wage,int totalNoOfDays) {
 
-	         this.wagePerHour = wage;
-	         this.fullDay = 8;
-	        this.halfDay = 4;
-	        this.dailyWage = 0;
-	        this.monthlyWage = 0;
-	        this.counter1 = 0.0f;
-	        this.totalHourPresnt = 0;
-	        this.totalhourPartTime = 0;
-	        this.totalHourAbsent = 0;
-	        this.totalHours = 0;
-	        this.companyName = companyName1;
-	        this.totalNoOfDays = totalNoOfDays;
-
-
+		this.wagePerHour = wage;
+		this.fullDay = 8;
+		this.halfDay = 4;
+		this.dailyWage = 0;
+		this.monthlyWage = 0;
+		this.counter1 = 0.0f;
+		this.totalHourPresnt = 0;
+		this.totalhourPartTime = 0;
+		this.totalHourAbsent = 0;
+		this.totalHours = 0;
+		this.companyName = companyName1;
+		this.totalNoOfDays = totalNoOfDays;
 
 
 
 
-	    }
 
 
-	    public  void attendanceCheck() {
-
-	        this.empCheck = (int) Math.floor(Math.random() * 10) % 3;
-	        switch (this.empCheck) {
-	            case 0:
-
-	                System.out.println(companyName + ":" + " Employee is Present  and is working full time ");
-	                this.totalHourPresnt = this.totalHourPresnt + 8;
-	                this.counter1 = counter1 + 1.0f;
-	                break;
-
-	            case 1:
-	                System.out.println(companyName + ":" + "Employee is Present but working part time");
-	                this.totalhourPartTime = this.totalhourPartTime + 4;
-	                this.counter1 = counter1 + 0.5f;
-	                break;
-
-	            case 2:
-	                System.out.println(companyName + ":" + "Employee is Absent");
-	                this.totalHourAbsent = 0;
-	                this.counter1 = counter1 + 0f;
-	                break;
-	        }
-	    }
-
-	    public  void dailyWage() {
-	        if (empCheck == 0) {
-	            dailyWage = wagePerHour * fullDay;
-	            System.out.println(companyName + ":" +"The daily wage of Employee is : " + dailyWage);
-
-	        } else if (empCheck == 1) {
-	            dailyWage = wagePerHour * halfDay;
-	            System.out.println(companyName + ":" +"The daily wage of Employee is : " + dailyWage);
-
-	        } else {
-	            dailyWage = 0;
-	            System.out.println(companyName + ":" +"The daily wage of Employee is : " + dailyWage);
-
-	        }
-	        //  System.out.println(totalHours);
-
-	    }
-
-	    public  void monthlyWage() {
-
-	        monthlyWage = monthlyWage + dailyWage;
-	        totalHours = totalHourPresnt + totalhourPartTime;
-
-	    }
-
-
-	    public  void monthlyWageCondition() {
-
-	        if (counter1 >= 20 || totalHours >= 100) {
-	            System.out.println(companyName + ":" +"Total working hour while employee is working Full time :" + totalHourPresnt);
-	            System.out.println(companyName + ":" +"Total working hour while employee is working Part time :" + totalhourPartTime);
-	            System.out.println(companyName + ":" +"Total working hour while employee is Absent :" + totalHourAbsent);
-	            System.out.println(companyName + ":" +"The monthly wage is: " + monthlyWage);
-	        } else {
-	            System.out.println(companyName + ":" +"Total working hour while employee is working Full time :" + totalHourPresnt);
-	            System.out.println(companyName + ":" +"Total working hour while employee is working Part time :" + totalhourPartTime);
-	            System.out.println(companyName + ":" +"The total hours employee worked is: " + totalHours);
-	            System.out.println(companyName + ":" +"The monthly wage is: " + monthlyWage);
-	        }
-	    }
-
-
-	    void combineMethod() {
-	        Scanner sc1 = new Scanner(System.in);
-	        System.out.print("Enter the number of days you were supposed to work ( between 1 -20 ) for: ");
-	        totalNoOfDays = sc1.nextInt();
-
-	        for (int i = 1; i <= totalNoOfDays; i++) {
-	            System.out.println("DAY NO :" + i);
-	            attendanceCheck();
-	            dailyWage();
-	            monthlyWage();
-	        }
-	            monthlyWageCondition();
-
-	    }
 	}
-public class Main {
+
+
+	public  void attendanceCheck() {
+
+		this.empCheck = (int) Math.floor(Math.random() * 10) % 3;
+		switch (this.empCheck) {
+		case 0:
+
+			System.out.println(companyName + ":" + " Employee is Present  and is working full time ");
+			this.totalHourPresnt = this.totalHourPresnt + 8;
+			this.counter1 = counter1 + 1.0f;
+			break;
+
+		case 1:
+			System.out.println(companyName + ":" + "Employee is Present but working part time");
+			this.totalhourPartTime = this.totalhourPartTime + 4;
+			this.counter1 = counter1 + 0.5f;
+			break;
+
+		case 2:
+			System.out.println(companyName + ":" + "Employee is Absent");
+			this.totalHourAbsent = 0;
+			this.counter1 = counter1 + 0f;
+			break;
+		}
+	}
+
+	public  void dailyWage() {
+		if (empCheck == 0) {
+			dailyWage = wagePerHour * fullDay;
+			System.out.println(companyName + ":" +"The daily wage of Employee is : " + dailyWage);
+
+		} else if (empCheck == 1) {
+			dailyWage = wagePerHour * halfDay;
+			System.out.println(companyName + ":" +"The daily wage of Employee is : " + dailyWage);
+
+		} else {
+			dailyWage = 0;
+			System.out.println(companyName + ":" +"The daily wage of Employee is : " + dailyWage);
+
+		}
+		//  System.out.println(totalHours);
+
+	}
+
+	public  void monthlyWage() {
+
+		monthlyWage = monthlyWage + dailyWage;
+		totalHours = totalHourPresnt + totalhourPartTime;
+
+	}
+
+
+	public  void monthlyWageCondition() {
+
+		if (counter1 >= 20 || totalHours >= 100) {
+			System.out.println(companyName + ":" +"Total working hour while employee is working Full time :" + totalHourPresnt);
+			System.out.println(companyName + ":" +"Total working hour while employee is working Part time :" + totalhourPartTime);
+			System.out.println(companyName + ":" +"Total working hour while employee is Absent :" + totalHourAbsent);
+			System.out.println(companyName + ":" +"The monthly wage is: " + monthlyWage);
+		} else {
+			System.out.println(companyName + ":" +"Total working hour while employee is working Full time :" + totalHourPresnt);
+			System.out.println(companyName + ":" +"Total working hour while employee is working Part time :" + totalhourPartTime);
+			System.out.println(companyName + ":" +"The total hours employee worked is: " + totalHours);
+			System.out.println(companyName + ":" +"The monthly wage is: " + monthlyWage);
+		}
+	}
+
+
+	void combineMethod() {
+		Scanner sc1 = new Scanner(System.in);
+		System.out.print("Enter the number of days you were supposed to work ( between 1 -20 ) for: ");
+		totalNoOfDays = sc1.nextInt();
+
+		for (int i = 1; i <= totalNoOfDays; i++) {
+			System.out.println("DAY NO :" + i);
+			attendanceCheck();
+			dailyWage();
+			monthlyWage();
+		}
+		monthlyWageCondition();
+
+	}
+
+
+
+
+	//public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
